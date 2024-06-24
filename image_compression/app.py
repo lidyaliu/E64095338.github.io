@@ -1,68 +1,34 @@
-from flask import Flask, render_template, request, send_file
-from PIL import Image
+%matplotlib inline
+import matplotlib.pyplot as plt
 import numpy as np
-import io
-import os
+import time
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = './static/uploads'
+from PIL import Image
 
-# Function to compress image using SVD
-def compress_image(image_path, k):
-    # Load image and convert to grayscale
-    image = Image.open(image_path).convert('L')
-    image_matrix = np.array(image)
-    
-    # Perform SVD
-    U, S, V = np.linalg.svd(image_matrix, full_matrices=False)
-    
-    # Truncate matrices based on k
-    U_k = U[:, :k]
-    S_k = np.diag(S[:k])
-    V_k = V[:k, :]
-    
-    # Reconstruct compressed image matrix
-    compressed_image_matrix = np.dot(U_k, np.dot(S_k, V_k))
-    
-    # Convert compressed matrix back to image
-    compressed_image = Image.fromarray(compressed_image_matrix.astype('uint8'), 'L')
-    
-    # Save compressed image to byte stream
-    output = io.BytesIO()
-    compressed_image.save(output, format='PNG')
-    output.seek(0)
-    
-    return output
+img = Image.open('input/test1 (1).png')
+imggray = img.convert('LA')
+plt.figure(figsize=(9, 6))
+plt.imshow(imggray);
 
-# Route to render index.html
-@app.route('/')
-def index():
-    return render_template('index.html', compressed_image=None)
+#convert the image data into a numpy matrix, plotting the result to show the data is unchanged
+imgmat = np.array(list(imggray.getdata(band=0)), float)
+imgmat.shape = (imggray.size[1], imggray.size[0])
+imgmat = np.matrix(imgmat)
+plt.figure(figsize=(9,6))
+plt.imshow(imgmat, cmap='gray');
 
-# Route to handle file upload and compression
-@app.route('/compress', methods=['POST'])
-def upload_file():
-    if request.method == 'POST':
-        # Get the uploaded file and k value from the form
-        file = request.files['file']
-        k = int(request.form['k'])
-        
-        if file:
-            # Save the uploaded file temporarily
-            image_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-            file.save(image_path)
-            
-            # Perform image compression
-            compressed_image = compress_image(image_path, k)
-            
-            # Delete the uploaded file after compression
-            os.remove(image_path)
-            
-            # Send compressed image as a downloadable file
-            return send_file(compressed_image, mimetype='image/png', as_attachment=True, attachment_filename='compressed_image.png')
-    
-    # Render index.html if something goes wrong
-    return render_template('index.html', compressed_image=None)
+U, sigma, V = np.linalg.svd(imgmat) #to compute the  singular value decomposition
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#computing approx. of the img using first column of U and first row of V reproduces the most prominent feature of the image
+reconstimg = np.matrix(U[:, :1]) * np.diag(sigma[:1]) * np.matrix(V[:1, :])
+plt.imshow(reconstimg, cmap='gray');
+
+#the loop shows the reconstructed image using the first n vectors of the SVD(n is shown on title of plot)
+#The first 50 vectors produce an image very close the original image, while taking up only  (50∗3900+50+50∗2600)/(3900∗2600)≈3.2% as much space as the original data
+for i in range(2, 51, 5):
+    reconstimg = np.matrix(U[:, :i]) * np.diag(sigma[:i]) * np.matrix(V[:i, :])
+    plt.imshow(reconstimg, cmap='gray')
+    title = "n = %s" % i
+    plt.title(title)
+    plt.show()
+
