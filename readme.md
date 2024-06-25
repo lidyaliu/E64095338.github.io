@@ -101,7 +101,8 @@ Here, I use mercury for the convenience of developing the SVD image-compression 
 
 ## A Glimpse of The Result
 
-the full result is uploaded in this directory as **result.html**
+The full result is uploaded in this directory as **result.html**
+The result file can also directly be viewed by proceeding to **https://lidyaliu.github.io/E64095338.github.io/** (Supported by Github Pages)
 
 Original Image (Before Converted to Grayscale):
 
