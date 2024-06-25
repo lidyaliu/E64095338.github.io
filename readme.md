@@ -99,6 +99,10 @@ image5 image6
 
 image5 image6
 
-## The Result
+## A Glimpse of The Result
 
-the result is uploaded in this directory as **result.html**
+the full result is uploaded in this directory as **result.html**
+
+provided below is the original image after converted to grayscale and one of the results
+
+image7 image8
