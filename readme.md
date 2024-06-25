@@ -35,7 +35,7 @@ Now, we select a number k of singular values to be used in the approximation. Th
 image2
 
 The colored region indicates how much data is required to store this approximation:
-compressed size = k × (1 + m + n) = m×k + k + k˗ n
+compressed size = n × (1 + w + h)
 (In actuality, since U and V are orthogonal, significantly less space is required.) It is possible to demonstrate that this approximation is, in some ways, ideal.
 Principal component analysis in statistics and model reduction through numerical simulations both frequently use SVD. More advanced techniques, such as JPG, which consider human perception, typically do better than SVD compression when it comes to image compression.
 
