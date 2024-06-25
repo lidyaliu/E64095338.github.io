@@ -20,7 +20,7 @@ conda install -c conda-forge mercury
 
 A matrix with dimensions of m × n is a real number grid with m rows and n columns. Matrix sizes of m×n explain linear mappings from n-dimensional to m-dimensional space in the mathematical field of linear algebra. In general, the definition of linear is that the origin in n-dimensional space maps to the origin in m-dimensional space, and straight lines map to straight lines. We may compute the product AB, which is a (m × k)‑matrix, when we have a (m × n)‑matrix A and a (n × k)‑matrix B. The mapping that corresponds to AB is precisely made up of the mappings that correspond to A and B, in that order.
 
-image1
+![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/ee05df7f-f67e-4365-a190-31252bcdb9ac)
 
 From **Singular Value Decomposition (SVD)**, each (m×n)‑matrix A can be expressed as a product of U and V, which are orthogonal matrices, and Σ, the matrix, which is made up of zeros everywhere else and descending non-negative values on its diagonal. The singular values (SVs) of A are the entries σ1 ≥ σ2 ≥ σ3 ≥ … ≥ 0 on the diagonal of Σ. In a geometric sense, Σ scales by σj to transfer the j-th coordinate vector of n-dimensional space to the j-th coordinate vector of m-dimensional space. When U and V are orthogonal, it suggests that they correspond to rotations of m-dimensional and n-dimensional space, respectively, potentially followed by a reflection. As a result, the only vector length that is altered by Σ.
 
@@ -32,10 +32,10 @@ In order to accomplish this, we compute an approximation to the matrix A that re
 
 Now, we select a number k of singular values to be used in the approximation. The quality of the approximation improves with a greater number, but encoding it requires more data. Now, we only consider the upper left (k × k)-square of Σ, which contains the k greatest (and thus most significant) singular values, and the first k columns of U and V. Having: 
 
-image2
+![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/167f58bb-745e-4d9f-86d0-113d63ce87f8)
 
 The colored region indicates how much data is required to store this approximation:
-compressed size = n × (1 + w + h)
+compressed size = k × (1 + m + n)
 (In actuality, since U and V are orthogonal, significantly less space is required.) It is possible to demonstrate that this approximation is, in some ways, ideal.
 Principal component analysis in statistics and model reduction through numerical simulations both frequently use SVD. More advanced techniques, such as JPG, which consider human perception, typically do better than SVD compression when it comes to image compression.
 
@@ -91,18 +91,21 @@ mercury run
 
 And a new window of mercury will be opened in the browser window:
 
-image3 image4
+![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/6c70ec1e-35b1-45dc-b202-5041534d4f4f) 
+![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/1bf309c2-14da-4f30-a6ee-0d1fec175bbb)
 
 Here, I use mercury for the convenience of developing the SVD image-compression tool as a Web Application. We could directly drag and select the image we want to compress. Then the result is shown in the mercury window and indeed we could also download the result as a .html or .pdf file.
 
-image5 image6
-
-image5 image6
+![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/86fd3bbc-f1df-4860-bf15-114042114efb)
+![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/a086802d-544c-4906-8b4d-10c8379d9a34)
 
 ## A Glimpse of The Result
 
 the full result is uploaded in this directory as **result.html**
 
-provided below is the original image after converted to grayscale and one of the results
-
-image7 image8
+Original Image (Before Converted to Grayscale):
+![Screenshot 2024-06-10 131701](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/c6ff3adc-834f-4bed-b5fa-574941ac333a)
+Original Image After Converted to Grayscale:
+![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/139dedc3-0a40-401f-96b8-95f57aaf6c65)
+Compressed Image:
+![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/315f6d45-d3ac-4387-bfdb-0a43fbdc8a93)
