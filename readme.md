@@ -19,11 +19,11 @@ conda install -c conda-forge mercury
 
 A matrix with dimensions of m × n is a real number grid with m rows and n columns. Matrix sizes of m×n explain linear mappings from n-dimensional to m-dimensional space in the mathematical field of linear algebra. In general, the definition of linear is that the origin in n-dimensional space maps to the origin in m-dimensional space, and straight lines map to straight lines. We may compute the product AB, which is a (m × k)‑matrix, when we have a (m × n)‑matrix A and a (n × k)‑matrix B. The mapping that corresponds to AB is precisely made up of the mappings that correspond to A and B, in that order.
 
-image
+image1
 
 From **Singular Value Decomposition (SVD)**, each (m×n)‑matrix A can be expressed as a product of U and V, which are orthogonal matrices, and Σ, the matrix, which is made up of zeros everywhere else and descending non-negative values on its diagonal. The singular values (SVs) of A are the entries σ1 ≥ σ2 ≥ σ3 ≥ … ≥ 0 on the diagonal of Σ. In a geometric sense, Σ scales by σj to transfer the j-th coordinate vector of n-dimensional space to the j-th coordinate vector of m-dimensional space. When U and V are orthogonal, it suggests that they correspond to rotations of m-dimensional and n-dimensional space, respectively, potentially followed by a reflection. As a result, the only vector length that is altered by Σ.
 
-## Using SVD for image compression
+## Using SVD for Image Compression
 
 A given image can be divided into its three color channels, red, green, and blue. Any value between 0 and 255 can be represented by a (m×n)‑matrix for each channel. The matrix A, which represents one of the channels, will now be compressed.
 
@@ -31,7 +31,7 @@ In order to accomplish this, we compute an approximation to the matrix A that re
 
 Now, we select a number k of singular values to be used in the approximation. The quality of the approximation improves with a greater number, but encoding it requires more data. Now, we only consider the upper left (k × k)-square of Σ, which contains the k greatest (and thus most significant) singular values, and the first k columns of U and V. Having: 
 
-image
+image2
 
 The colored region indicates how much data is required to store this approximation:
 compressed size = k × (1 + m + n) = m×k + k + k˗ n
@@ -82,6 +82,16 @@ using Windows PowerShell, run mercury on the same directory as the .ipynb file, 
 mercury run
 ```
 
+And a new window of mercury will be opened in the browser window:
 
+image3 image4
 
+Here, I use mercury for the convenience of developing the SVD image-compression tool as a Web Application. We could directly drag and select the image we want to compress. Then the result is shown in the mercury window and indeed we could also download the result as a .html or .pdf file.
 
+image5 image6
+
+image5 image6
+
+## The Result
+
+the result is uploaded in this directory as result.html
