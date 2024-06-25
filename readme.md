@@ -97,8 +97,6 @@ And a new window of mercury will be opened in the browser window:
 
 Here, I use mercury for the convenience of developing the SVD image-compression tool as a Web Application. We could directly drag and select the image we want to compress. Then the result is shown in the mercury window and indeed we could also download the result as a .html or .pdf file.
 
-![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/86fd3bbc-f1df-4860-bf15-114042114efb)
-
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/a086802d-544c-4906-8b4d-10c8379d9a34)
 
 ## A Glimpse of The Result
@@ -112,4 +110,5 @@ Original Image After Converted to Grayscale:
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/139dedc3-0a40-401f-96b8-95f57aaf6c65)
 
 Compressed Image:
+
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/315f6d45-d3ac-4387-bfdb-0a43fbdc8a93)
