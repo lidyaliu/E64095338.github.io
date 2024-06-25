@@ -42,7 +42,7 @@ Principal component analysis in statistics and model reduction through numerical
 ## About This Project
 
 I used Anaconda to construct the .ipynb file and utilized Mercury for the UI/UX and functionally used as Web Application. 
-Provided the python code below:
+Provided the python code below: (Also provided in the directory named as **image_compression.ipynb**)
 
 ```python
 import matplotlib.pyplot as plt
