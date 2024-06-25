@@ -1,6 +1,7 @@
 # Image-Compression Tool using SVD with Mercury
 
-112-2 國立成功大學編譯系統作業 1 初始檔案
+線性代數——影像壓縮應用: 
+首先，為了比對方便，把圖像弄成 Grayscale。使用奇異值分解（SVD）方法，通過對影像的像素矩陣進行 SVD 分解，可以獲得其奇異值和對應的奇異向量，進而實現對影像的壓縮。最後，對比奇異值分解（SVD），評估壓縮率和影像品質。
 
 ## Environmental Setup
 - Install Dependencies
@@ -48,15 +49,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import mercury as mr
+
 file = mr.File(label="File upload", max_file_size="10MB")
-print(f"Uploaded Image: {file.filepath}\{file.filename}")
+print(f"Uploaded Image: {file.filepath}\\{file.filename}")
 img = Image.open(file.filepath) #Load the image
 imggray = img.convert('LA') #Convert image to grayscale for comparison convenience
 plt.figure(figsize=(9, 6))
 plt.imshow(imggray) #Display original grayscale image
-plt.title('Original Image (Grayscale)')
+w,h=imggray.size
+resolution = w*h
+plt.title("Original Image (Grayscale), Size: %d pixels" % resolution)
 plt.axis('off')
 plt.show()
+
 imgmat = np.array(list(imggray.getdata(band=0)), float) #Convert image data into a numpy matrix
 imgmat.shape = (imggray.size[1], imggray.size[0])
 imgmat = np.matrix(imgmat)
@@ -66,12 +71,14 @@ plt.title('Image Matrix')
 plt.axis('off')
 plt.show()
 U, sigma, V = np.linalg.svd(imgmat) #Perform Singular Value Decomposition (SVD)
+
 #Reconstruct the image using different numbers of singular vectors
 for i in range(1, min(imgmat.shape) + 1,min(imgmat.shape)//10): #min(imgmat.shape) represent max number of singular vectors possible
+    res = i*(w+h+1)
     new = np.matrix(U[:, :i]) * np.diag(sigma[:i]) * np.matrix(V[:i, :])
     plt.figure(figsize=(9, 6))
     plt.imshow(new, cmap='gray')
-    plt.title("n = %s" % i)
+    plt.title("n = %s, Compressed Size: %d pixels, Compression Ratio: %.2f" % (i,res,(resolution/res)))
     plt.axis('off')
     plt.show()
 ```
@@ -94,4 +101,4 @@ image5 image6
 
 ## The Result
 
-the result is uploaded in this directory as result.html
+the result is uploaded in this directory as **result.html**
