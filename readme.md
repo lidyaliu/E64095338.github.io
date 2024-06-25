@@ -92,11 +92,13 @@ mercury run
 And a new window of mercury will be opened in the browser window:
 
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/6c70ec1e-35b1-45dc-b202-5041534d4f4f) 
+
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/1bf309c2-14da-4f30-a6ee-0d1fec175bbb)
 
 Here, I use mercury for the convenience of developing the SVD image-compression tool as a Web Application. We could directly drag and select the image we want to compress. Then the result is shown in the mercury window and indeed we could also download the result as a .html or .pdf file.
 
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/86fd3bbc-f1df-4860-bf15-114042114efb)
+
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/a086802d-544c-4906-8b4d-10c8379d9a34)
 
 ## A Glimpse of The Result
@@ -105,7 +107,9 @@ the full result is uploaded in this directory as **result.html**
 
 Original Image (Before Converted to Grayscale):
 ![Screenshot 2024-06-10 131701](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/c6ff3adc-834f-4bed-b5fa-574941ac333a)
+
 Original Image After Converted to Grayscale:
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/139dedc3-0a40-401f-96b8-95f57aaf6c65)
+
 Compressed Image:
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/315f6d45-d3ac-4387-bfdb-0a43fbdc8a93)
