@@ -1,6 +1,6 @@
 # Image-Compression Tool using SVD with Mercury
 
-線性代數——影像壓縮應用: 
+**性代數——影像壓縮應用: **
 首先，為了比對方便，把圖像弄成 Grayscale。使用奇異值分解（SVD）方法，通過對影像的像素矩陣進行 SVD 分解，可以獲得其奇異值和對應的奇異向量，進而實現對影像的壓縮。最後，對比奇異值分解（SVD），評估壓縮率和影像品質。
 
 ## Environmental Setup
