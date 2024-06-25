@@ -1,6 +1,6 @@
 # Image-Compression Tool using SVD with Mercury
 
-**性代數——影像壓縮應用: **
+new Text("性代數——影像壓縮應用:", style: new TextStyle(fontWeight: FontWeight.bold)) 
 首先，為了比對方便，把圖像弄成 Grayscale。使用奇異值分解（SVD）方法，通過對影像的像素矩陣進行 SVD 分解，可以獲得其奇異值和對應的奇異向量，進而實現對影像的壓縮。最後，對比奇異值分解（SVD），評估壓縮率和影像品質。
 
 ## Environmental Setup
@@ -28,7 +28,7 @@ From **Singular Value Decomposition (SVD)**, each (m×n)‑matrix A can be expre
 
 A given image can be divided into its three color channels, red, green, and blue. Any value between 0 and 255 can be represented by a (m×n)‑matrix for each channel. The matrix A, which represents one of the channels, will now be compressed.
 
-In order to accomplish this, we compute an approximation to the matrix A that requires a very small amount of storage space. The best part of SVD is that it sorts the data in the matrices U, Ϋ, and V according to how big of a contribution they make to matrix A in the product. This allows us to obtain a fairly accurate approximation by utilizing only the most significant components of the matrices.
+In order to accomplish this, we compute an approximation to the matrix A that requires a very small amount of storage space. The best part of SVD is that it sorts the data in the matrices U, Sigma, and V according to how big of a contribution they make to matrix A in the product. This allows us to obtain a fairly accurate approximation by utilizing only the most significant components of the matrices.
 
 Now, we select a number k of singular values to be used in the approximation. The quality of the approximation improves with a greater number, but encoding it requires more data. Now, we only consider the upper left (k × k)-square of Σ, which contains the k greatest (and thus most significant) singular values, and the first k columns of U and V. Having: 
 
