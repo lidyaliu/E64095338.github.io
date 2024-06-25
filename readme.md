@@ -104,7 +104,8 @@ Here, I use mercury for the convenience of developing the SVD image-compression 
 the full result is uploaded in this directory as **result.html**
 
 Original Image (Before Converted to Grayscale):
-![Screenshot 2024-06-10 131701](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/c6ff3adc-834f-4bed-b5fa-574941ac333a)
+
+![Screenshot 2024-06-10 131643](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/96e3bacb-148f-4a71-92db-d1673538fcbc)
 
 Original Image After Converted to Grayscale:
 ![image](https://github.com/lidyaliu/E64095338.github.io/assets/165878160/139dedc3-0a40-401f-96b8-95f57aaf6c65)
